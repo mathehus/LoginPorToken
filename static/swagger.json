@@ -21,12 +21,28 @@
     }
   ],
   "paths": {
-    "/pegarvendas": {
-      "get": {
+    "/PegarToken": {
+      "parameters": [
+        {
+          "name": "Login",
+          "in": "path",
+          "required": true,
+          "description": "login",
+          "type": "string"
+        },
+        {
+          "name": "Senha",
+          "in": "path",
+          "required": true,
+          "description": "senha",
+          "type": "string"
+        }
+      ],
+      "post": {
         "tags": [
-          "Vendas"
+          "Token"
         ],
-        "summary": "Pegar total de vendas!",
+        "summary": "Get Token",
         "responses": {
           "200": {
             "description": "OK",
@@ -34,7 +50,37 @@
               "$ref": "#/components/schemas/bookRequests"
             }
           }
+        }       
+      }
+
+    },
+    "/CriarToken": {
+      "parameters": [
+        {
+          "name": "Login",
+          "in": "path",
+          "required": true,
+          "description": "login",
+          "type": "string"
+        },
+        {
+          "name": "Senha",
+          "in": "path",
+          "required": true,
+          "description": "senha",
+          "type": "string"
         }
+      ],
+      "post": {
+        "summary": "Create Token",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/bookRequests"
+            }
+          }
+        }       
       }
     },
     "/newuser": {
